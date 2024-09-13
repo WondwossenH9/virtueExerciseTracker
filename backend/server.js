@@ -14,13 +14,10 @@ app.use((req, res, next) => {
 
 //routes react to requests
 app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the app' })
+    res.json({ mssg: 'Welcome to the app' })
 })
-
-
-
 
 //listen for requests
 app.listen(process.env.PORT, () => {
-    console.log("listening on port", process.env.PORT)
+    console.log('listening on port', process.env.PORT)
 })
