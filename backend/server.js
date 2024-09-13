@@ -9,6 +9,7 @@ const app = express()
 
 
 //global middleware
+app.use(express.json()) //parse incoming JSON requset body and convert to JS object for access via req.body
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
