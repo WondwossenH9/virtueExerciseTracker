@@ -14,10 +14,14 @@ app.use((req, res, next) => {
     next()
 })
 
-//routes react to requests
-app.get('/', (req, res) => {
-    res.json({ mssg: 'Welcome to the app' })
-})
+//routes to test the API react to requests
+// app.get('/', (req, res) => {
+//     res.json({ mssg: 'Welcome to the app' })
+// })
+app.use('/api/workouts', workoutRoutes) //attach all routes to the app
+
+
+
 
 //listen for requests
 app.listen(process.env.PORT, () => {
