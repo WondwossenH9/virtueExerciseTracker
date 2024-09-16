@@ -1,30 +1,28 @@
 const express = require('express') //to have access to the app from this file
+const {
+    createWorkout,
+    getWorkouts,
+    getWorkout,
+    deleteWorkout,
+    updateWorkout
+} = require('../controllers/workoutController')
 
 const router = express.Router() //create an instance of the router
 
-router.get('/', (req, res) => {
-    res.json({ mssg: 'Get all workouts' })
-}) //attach a handle
+//Get all workouts
+router.get('/', getWorkouts) //attach a handle
 
 //GET a single workout
-router.get('/:id', (req, res) => {
-    res.json({ mssg: 'GET a single workout' })
-})
+router.get('/:id', getWorkout)
 
 //POST a new workout 
-router.post('/', (req, res) => {
-    res.json({ mssg: 'POST a new workout' })
-})
+router.post('/', createWorkout)
 
 //DELETE a workout
-router.delete('/:id', (req, res) => {
-    res.json({ mssg: 'DELETE a workout' })
-})
+router.delete('/:id', deleteWorkout)
 
 //UPDATE a workout
-router.patch('/:id', (req, res) => {
-    res.json({ mssg: 'UPDATE a workout' })
-})
+router.patch('/:id', updateWorkout)
 
 
 module.exports = router //export the router
