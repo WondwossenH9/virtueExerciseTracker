@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
-
+const userRoutes = require('./routes/user')
 //express app
 const app = express()
 
@@ -15,12 +15,10 @@ app.use((req, res, next) => {
     next()
 })
 
-//routes to test the API react to requests
-// app.get('/', (req, res) => {
-//     res.json({ mssg: 'Welcome to the app' })
-// })
-app.use('/api/workouts', workoutRoutes) //attach all routes to the app
+//routes
 
+app.use('/api/workouts', workoutRoutes) //attach all routes to the app
+app.use('/api/user', userRoutes)
 
 //database connection
 mongoose.connect(process.env.MONGO_URI)
