@@ -14,6 +14,10 @@ const workoutSchema = new Schema({
     load: {
         type: Number,
         required: true
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, { timestamps: true }) //Schema for what a workout should look like
 //timestamp for when the doc is created and updated
