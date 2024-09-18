@@ -4,7 +4,7 @@ import { useAuthContext } from './useAuthContext'
 
 export const useSignup = () => {
     const [error, setError] = useState(null) //state for error
-    const [isloading, setIsLoading] = useState(null) //state for loading
+    const [isLoading, setIsLoading] = useState(null) //state for loading
     const { dispatch } = useAuthContext() //grab dispatch function to use the AuthContext
 
     const signup = async (email, password) => {
@@ -16,7 +16,7 @@ export const useSignup = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         })
-        const json = await response.json() //to get json data response
+        const json = await response.json() //get json data response
 
         if (!response.ok) {
             setIsLoading(false)

@@ -29,7 +29,7 @@ const Signup = () => {
                 value={password}
             />
 
-            <button disabled={isLoading}>Sign up</button>//if loading is true don't send anothr one
+            <button disabled={isLoading}>Sign up</button>
             {error && <div className="error">{error}</div>}
         </form>
     )

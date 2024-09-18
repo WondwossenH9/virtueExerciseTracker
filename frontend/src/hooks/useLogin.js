@@ -4,7 +4,7 @@ import { useAuthContext } from './useAuthContext'
 
 export const useLogin = () => {
     const [error, setError] = useState(null) //state for error
-    const [isloading, setIsLoading] = useState(null) //state for loading
+    const [isLoading, setIsLoading] = useState(null) //state for loading
     const { dispatch } = useAuthContext() //grab dispatch function to use the AuthContext
 
     const login = async (email, password) => {
