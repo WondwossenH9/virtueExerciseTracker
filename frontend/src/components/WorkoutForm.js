@@ -9,6 +9,8 @@ const WorkoutForm = () => {
     const [title, setTitle] = useState('')
     const [load, setLoad] = useState('')
     const [reps, setReps] = useState('')
+    const [sets, setSets] = useState('')
+    const [restInMin, setRestInMin] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
@@ -20,7 +22,7 @@ const WorkoutForm = () => {
             return
         }
 
-        const workout = { title, load, reps }
+        const workout = { title, load, reps, sets, restInMin }
 
         const response = await fetch('/api/workouts', {
             method: 'POST',
@@ -40,6 +42,8 @@ const WorkoutForm = () => {
             setTitle('') //reseting the form
             setLoad('') //resetting the form
             setReps('') //resetting the form
+            setSets('') //resetting the form
+            setRestInMin('') //resetting the form
             setError(null)
             setEmptyFields([])
             console.log("New workout created.", json)
@@ -71,6 +75,20 @@ const WorkoutForm = () => {
                 onChange={(e) => setReps(e.target.value)}
                 value={reps}
                 className={emptyFields.includes('reps') ? 'error' : ''}
+            />
+            <label>Sets:</label>
+            <input
+                type="number"
+                onChange={(e) => setSets(e.target.value)}
+                value={sets}
+                className={emptyFields.includes('sets') ? 'error' : ''}
+            />
+            <label>RestInMin:</label>
+            <input
+                type="number"
+                onChange={(e) => setRestInMin(e.target.value)}
+                value={restInMin}
+                className={emptyFields.includes('restInMin') ? 'error' : ''}
             />
 
             <button>Create Workout</button>
