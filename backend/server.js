@@ -4,6 +4,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
+const goalRoutes = require('./routes/goals') //import new routes
+
 //express app
 const app = express()
 
@@ -19,9 +21,10 @@ app.use((req, res, next) => {
 
 app.use('/api/workouts', workoutRoutes) //attach all routes to the app
 app.use('/api/user', userRoutes)
+app.use('/api/goals', goalRoutes)
 
-//database connection
-mongoose.connect(process.env.MONGO_URI)
+//database connection to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         //listen for requests
         app.listen(process.env.PORT, () => {
